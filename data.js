@@ -4,6 +4,7 @@
 // updatedDate: "YYYY-MM-DD" — shown in changelog
 
 const CHANGELOG = [
+  { date: "2026-04-14", description: "Added 3 new topics: Multimodal AI, AI Agent Governance & Security, and Agentic AI in the Enterprise. Updated Foundation Models and AI Agents cards to reflect the April 2026 model landscape and production adoption shift." },
   { date: "2026-03-13", description: "Initial launch — 21 topics across PM, HFR, and shared categories. Added research questions to all cards." }
 ];
 
@@ -12,6 +13,44 @@ const TOPICS = [
   // ──────────────────────────────────────────────
   // PM + HFR — Topics relevant to both roles
   // ──────────────────────────────────────────────
+
+  {
+    id: "multimodal-ai",
+    category: "both",
+    title: "Multimodal AI",
+    tagline: "AI that sees, hears, reads, and reasons — all at once.",
+    summary: "Multimodal AI models process multiple types of input simultaneously: text, images, audio, and video — without bolt-on modules. As of 2026, this is standard in frontier models: Gemini 3.1 Ultra, GPT-5.4, and Claude Opus 4.6 are all natively multimodal. A single model can now watch a video, cross-reference a document, and generate insights in seconds. For products, this expands the design space dramatically — interfaces can accept voice, image, and text interchangeably.",
+    whyItMatters: {
+      pm: "Multimodal capabilities open entirely new product surfaces. PMs need to define which modalities add genuine value for their users vs. which are novelty, and design evaluation frameworks for outputs that span text, image, and audio.",
+      hfr: "Multimodal AI raises new questions about user comprehension, attention, and mental models — how do people understand and trust AI that simultaneously processes inputs across senses? Accessibility implications are also significant."
+    },
+    keyTerms: ["multimodal", "vision-language models", "audio models", "cross-modal reasoning", "Gemini 3.1", "GPT-5.4", "input modality"],
+    learnMore: "https://blog.mean.ceo/new-ai-model-releases-news-april-2026/",
+    addedDate: "2026-04-14",
+    researchQuestions: [
+      "When AI can accept voice, image, and text interchangeably, how do users choose which modality to use — and does the choice affect task success and satisfaction?",
+      "How do multimodal AI outputs (e.g., AI-generated images alongside text explanations) affect trust and comprehension compared to text-only outputs?"
+    ]
+  },
+
+  {
+    id: "agent-governance",
+    category: "both",
+    title: "AI Agent Governance & Security",
+    tagline: "Who's watching the agents — and what are they allowed to do?",
+    summary: "As AI agents move from demos to production in 2026, governance has become the critical gap. 97% of enterprises expect a major AI agent security incident this year (CrowdStrike). Key risks: goal hijacking, memory poisoning, rogue agents, and unauthorized data access. Most companies don't know where their agents are, what systems they can access, or what they're doing. Gartner predicts over 40% of agent projects will fail by 2027 due to costs and security issues — not technical capability. Tools like Microsoft's Agent Governance Toolkit and monitoring platforms like AgentMon are emerging to address this.",
+    whyItMatters: {
+      pm: "Governance is a product requirement, not an IT afterthought. PMs need to define agent permission scopes, audit trails, spending controls (uncontrolled agents can cost $300/day), and human escalation paths before shipping agentic features.",
+      hfr: "Agent governance raises profound questions about transparency and user consent: do users know what their AI agents can access and do? Research on user understanding of agent permissions and trust in autonomous systems is urgently needed."
+    },
+    keyTerms: ["agent permissions", "goal hijacking", "memory poisoning", "audit trail", "spending controls", "agent monitoring", "human escalation"],
+    learnMore: "https://joget.com/ai-agent-adoption-in-2026-what-the-analysts-data-shows/",
+    addedDate: "2026-04-14",
+    researchQuestions: [
+      "Do users understand what permissions they are granting when they authorize an AI agent — and how does that understanding change their willingness to deploy agents for sensitive tasks?",
+      "What mental models do users form about agent 'oversight' — do they assume someone is watching, or do they assume the agent is fully autonomous?"
+    ]
+  },
 
   {
     id: "llms",
@@ -45,6 +84,7 @@ const TOPICS = [
     keyTerms: ["tool use", "function calling", "planning loop", "human-in-the-loop (HITL)", "multi-agent", "orchestration"],
     learnMore: "https://www.ibm.com/think/insights/ai-agents-2025-expectations-vs-reality",
     addedDate: "2026-03-13",
+    updatedDate: "2026-04-14",
     researchQuestions: [
       "At what point in an agentic task do users feel they have lost meaningful control — and what interface signals trigger that feeling?",
       "How should AI agents communicate uncertainty or failure mid-task without breaking user trust in the overall system?"
@@ -171,6 +211,24 @@ const TOPICS = [
   // ──────────────────────────────────────────────
 
   {
+    id: "enterprise-agents",
+    category: "pm",
+    title: "Agentic AI in the Enterprise",
+    tagline: "Moving AI agents from experiments to production — and why most fail.",
+    summary: "2026 is the year AI agents moved from lab to production. 65% of organizations are experimenting with agents, but fewer than 25% have successfully scaled them. Gartner's first-ever AI agent report (April 2026) found 42% of companies plan to deploy within 12 months — but predicts 40% of those projects will be abandoned by 2027 due to costs and security. The real bottleneck isn't model capability: it's clean data (Snowflake), integration complexity, workflow redesign, and organizational change. By end of 2026, 40% of business applications are expected to include AI agents — up from under 5% in 2025.",
+    whyItMatters: {
+      pm: "PMs leading agentic product initiatives need to plan for the 'scaling wall' — the gap between a working demo and a reliable production deployment. Success requires defining governance frameworks, spending controls, and human-override paths before launch, not after."
+    },
+    keyTerms: ["agent deployment", "scaling wall", "multi-agent systems", "data governance", "ROI", "workflow redesign", "enterprise adoption"],
+    learnMore: "https://joget.com/ai-agent-adoption-in-2026-what-the-analysts-data-shows/",
+    addedDate: "2026-04-14",
+    researchQuestions: [
+      "What organizational factors (culture, data maturity, governance readiness) best predict whether an enterprise AI agent initiative will succeed or be abandoned?",
+      "How should PMs communicate agentic AI risks and costs to executives who see demos but don't understand production complexity?"
+    ]
+  },
+
+  {
     id: "ai-product-strategy",
     category: "pm",
     title: "AI Product Strategy & Roadmapping",
@@ -260,13 +318,14 @@ const TOPICS = [
     category: "pm",
     title: "Foundation Models & the Model Landscape",
     tagline: "Knowing your options: which model, when, and why.",
-    summary: "Foundation models are large, general-purpose models that can be adapted for many tasks: GPT-4o, Claude 3.5/4, Gemini 1.5/2, Llama 3, Mistral. PMs need to understand the trade-offs: capability vs. cost vs. latency vs. privacy (cloud vs. on-device). Model agnosticism — designing your product to work with any capable model — is increasingly important as the landscape shifts quickly.",
+    summary: "Foundation models are large, general-purpose models that can be adapted for many tasks. As of April 2026, the frontier is: GPT-5.4 (OpenAI, released March 5), Claude Opus 4.6 & Sonnet 4.6 (Anthropic, Feb 2026), Gemini 3.1 Pro (Google — leads 13/16 benchmarks, best cost efficiency), and Grok 4.20 (xAI, multi-agent architecture). The pace of releases has compressed: 7 major models dropped in February 2026 alone. PMs need to understand the trade-offs: capability vs. cost vs. latency vs. privacy (cloud vs. on-device). Model agnosticism — designing your product to work with any capable model — is increasingly important as the landscape shifts every few weeks.",
     whyItMatters: {
       pm: "Model selection is a product and business decision. Vendor lock-in, cost-per-token at scale, and capability gaps across models all affect your product's economics and roadmap."
     },
-    keyTerms: ["GPT-4o", "Claude", "Gemini", "Llama", "model agnosticism", "inference cost", "fine-tuning vs. prompting"],
-    learnMore: "https://www.apideck.com/blog/ai-agents-explained-everything-you-need-to-know-in-2025",
+    keyTerms: ["GPT-5.4", "Claude Opus 4.6", "Gemini 3.1 Pro", "Grok 4.20", "model agnosticism", "inference cost", "fine-tuning vs. prompting"],
+    learnMore: "https://blog.mean.ceo/new-ai-model-releases-news-april-2026/",
     addedDate: "2026-03-13",
+    updatedDate: "2026-04-14",
     researchQuestions: [
       "How do you evaluate vendor lock-in risk for an AI product built on a foundation model — and what contractual and architectural mitigations exist?"
     ]
