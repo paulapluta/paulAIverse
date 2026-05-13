@@ -4,6 +4,7 @@
 // updatedDate: "YYYY-MM-DD" — shown in changelog
 
 const CHANGELOG = [
+  { date: "2026-05-11", description: "Added 3 new topics: Vibe Coding, AI & Skill Development, and AI in Scientific Research. Updated Cognitive Load card with new deskilling research findings." },
   { date: "2026-04-14", description: "Added 3 new topics: Multimodal AI, AI Agent Governance & Security, and Agentic AI in the Enterprise. Updated Foundation Models and AI Agents cards to reflect the April 2026 model landscape and production adoption shift." },
   { date: "2026-03-13", description: "Initial launch — 21 topics across PM, HFR, and shared categories. Added research questions to all cards." }
 ];
@@ -332,6 +333,44 @@ const TOPICS = [
   },
 
 
+  {
+    id: "vibe-coding",
+    category: "both",
+    title: "Vibe Coding",
+    tagline: "Building software by describing intent, not writing syntax.",
+    summary: "Vibe coding is a development method where you describe what you want in natural language and AI generates the code. Coined by Andrej Karpathy in February 2025, it became the Collins Dictionary Word of the Year 2025 after search interest rose 6,700%. By 2026, 92% of US developers use AI coding tools daily and 41% of all global code is AI-generated. The skill shift is real: developers move from 'keyboard operators' to product-director roles — setting goals, judging outputs, and auditing for security. But risks are significant: ~45% of AI-generated code contains security vulnerabilities, and developers can end up with a 'three-month black box' — a codebase nobody understands. The key principle: judgment over syntax.",
+    whyItMatters: {
+      pm: "Vibe coding directly changes what PMs can build without engineering support — MVPs, prototypes, internal tools. But it also changes what you should expect from your engineering team and how you evaluate technical quality. Understanding the risks (security, maintainability, the 'black box' problem) is essential for scoping AI-assisted development work.",
+      hfr: "Vibe coding is a natural experiment in human-AI collaboration at scale. Key research questions: Does removing syntax barriers shift cognitive load to higher-order thinking, or does it create new verification burdens? What happens to software quality and security when intent replaces implementation knowledge?"
+    },
+    keyTerms: ["vibe coding", "intent-driven development", "AI code generation", "Cursor", "context engineering", "vibe & verify", "cognitive offloading"],
+    learnMore: "https://daily.dev/blog/vibe-coding-2026-ai-changing-how-developers-write-code",
+    addedDate: "2026-05-11",
+    researchQuestions: [
+      "When developers shift from writing to directing AI-generated code, does this free up cognitive capacity for higher-order design thinking — or does verification burden consume those gains?",
+      "How do non-technical users (PMs, designers) who build with vibe coding develop mental models of their own software — and what are the implications when things break?"
+    ]
+  },
+
+  {
+    id: "ai-scientific-research",
+    category: "both",
+    title: "AI in Scientific Research",
+    tagline: "From literature assistant to autonomous lab partner.",
+    summary: "AI is transforming scientific research across three stages: (1) Literature & synthesis — AI tools summarize papers, find connections, and surface relevant studies at speed no human can match. (2) Hypothesis generation — systems like Google DeepMind's AlphaEvolve combine LLMs with evolutionary algorithms to generate and evaluate novel scientific hypotheses. (3) Autonomous experimentation — AI can now design experiments, control lab instruments, and iterate on results. Microsoft Research projects that by end of 2026, every scientist could have an AI lab assistant that suggests and runs experiments. This is directly relevant to pharmaceutical and biotech research.",
+    whyItMatters: {
+      pm: "Scientific software is a growing AI product category. PMs building tools for researchers need to understand how AI augments the scientific method — and where the trust, reproducibility, and auditability requirements are far stricter than in consumer software.",
+      hfr: "Scientists are a high-expertise user group with strong domain mental models. How do they integrate AI suggestions into their scientific judgment? When does AI-generated hypothesis become AI-dictated conclusion? The trust, over-reliance, and accountability questions are especially high-stakes in research contexts."
+    },
+    keyTerms: ["AlphaEvolve", "hypothesis generation", "autonomous experimentation", "AI lab assistant", "literature synthesis", "scientific reproducibility"],
+    learnMore: "https://news.microsoft.com/source/features/ai/whats-next-in-ai-7-trends-to-watch-in-2026/",
+    addedDate: "2026-05-11",
+    researchQuestions: [
+      "How do scientists calibrate trust in AI-generated hypotheses — do they treat them as peer-level suggestions or as outputs to be skeptically audited?",
+      "What happens to scientific creativity and serendipity when AI narrows the hypothesis space to statistically likely candidates? Could AI systematically suppress unconventional breakthroughs?"
+    ]
+  },
+
   // ──────────────────────────────────────────────
   // HFR — Human Factors Research focused
   // ──────────────────────────────────────────────
@@ -402,6 +441,7 @@ const TOPICS = [
     keyTerms: ["cognitive load theory", "cognitive offloading", "skill atrophy", "deskilling", "AI-augmented reasoning", "dual-process theory"],
     learnMore: "https://aireasoning.media.mit.edu",
     addedDate: "2026-03-13",
+    updatedDate: "2026-05-11",
     researchQuestions: [
       "Does repeated use of AI writing or analysis tools measurably reduce users' independent reasoning ability over time — and if so, under what conditions?",
       "How does the design of AI feedback (immediate vs. delayed, explanatory vs. corrective) affect the development of critical thinking skills?"
@@ -441,6 +481,24 @@ const TOPICS = [
     researchQuestions: [
       "How do users adapt their communication style to AI conversation partners over time — and what does this adaptation reveal about their mental models?",
       "What is the appropriate level of AI persona (neutral tool vs. named assistant) for scientific research tools — and how does persona affect task performance and user satisfaction?"
+    ]
+  },
+
+  {
+    id: "ai-skill-development",
+    category: "hfr",
+    title: "AI & Skill Development",
+    tagline: "Does AI help us grow — or quietly prevent it?",
+    summary: "A growing body of research distinguishes between two types of AI-driven cognitive effects. In adults: skill atrophy — using AI for tasks you already know how to do weakens those capabilities over time, like a muscle you stop exercising. Recoverable, but real. In children and learners: cognitive foreclosure — AI may prevent skills from forming at all, not just weaken existing ones. A 2026 study by Shen & Tamkin found developers who fully delegated coding to AI produced working code but scored 17% worse than peers on conceptual understanding and couldn't debug what AI had written. Separate research shows AI homogenizes thinking: students processing information through the same model produce eerily similar essays and arguments, potentially adopting the model's statistical biases as their own reasoning.",
+    whyItMatters: {
+      hfr: "This is a defining HFR research frontier. Key distinctions: delegation (adult offloading automatable tasks, preserving judgment) vs. substitution (learners offloading micro-judgments they were supposed to build). Study methods: longitudinal studies, pre/post skill assessments, think-aloud protocols. Critical for anyone designing AI tools used in educational or training contexts."
+    },
+    keyTerms: ["skill atrophy", "cognitive foreclosure", "deskilling", "cognitive offloading", "homogenization", "delegation vs. substitution", "developmental stages"],
+    learnMore: "https://www.psychologytoday.com/us/blog/the-algorithmic-mind/202603/adults-lose-skills-to-ai-children-never-build-them",
+    addedDate: "2026-05-11",
+    researchQuestions: [
+      "How do you design AI tools for scientists or professionals that support skill development rather than substitution — what interaction patterns distinguish augmentation from delegation?",
+      "If AI homogenizes reasoning by imposing its statistical patterns, how do you measure the diversity loss in a research or product team — and what interventions restore it?"
     ]
   },
 
