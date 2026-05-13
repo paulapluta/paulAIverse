@@ -8,127 +8,238 @@
         Created with Perplexity Computer
         https://www.perplexity.ai/computer
 -->
-
-<!-- Perplexity Computer Attribution — SEO Meta Tags -->
 <meta name="generator" content="Perplexity Computer">
 <meta name="author" content="Perplexity Computer">
 <meta property="og:see_also" content="https://www.perplexity.ai/computer">
 <link rel="author" href="https://www.perplexity.ai/computer">
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>paulaiverse ploota</title>
-  <meta name="description" content="A personal knowledge base for AI topics — organized for product management and human factors research.">
+  <title>ploota</title>
+  <meta name="description" content="Paula Pluta's corner of the internet — experiments in AI, product, and research.">
 
-  <!-- Open Graph / link preview -->
-  <meta property="og:title" content="paulaiverse ploota">
-  <meta property="og:description" content="A personal knowledge base for AI topics — organized for product management and human factors research.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="ploota">
+  <meta property="og:description" content="Paula Pluta's corner of the internet — experiments in AI, product, and research.">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="paulaiverse ploota">
-  <meta name="twitter:description" content="A personal knowledge base for AI topics — organized for product management and human factors research.">
+  <meta name="twitter:title" content="ploota">
+  <meta name="twitter:description" content="Paula Pluta's corner of the internet — experiments in AI, product, and research.">
 
-  <!-- Fonts: Cabinet Grotesk (display) + Satoshi (body) from Fontshare -->
+  <!-- Fonts -->
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #f5f4f0;
+      --text:     #1e1c17;
+      --muted:    #726f68;
+      --faint:    #b8b5af;
+      --border:   #d8d5ce;
+      --surface:  #ffffff;
+      --grad-a:   #4c3fd4;
+      --grad-b:   #a855f7;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Satoshi', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Gradient utility ── */
+    .g {
+      background: linear-gradient(135deg, var(--grad-a) 0%, var(--grad-b) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Nav ── */
+    nav {
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .wordmark {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0 2rem 4rem;
+      max-width: 860px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-headline {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.8rem, 5vw + 1rem, 6rem);
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 3.5rem;
+    }
+
+    /* ── Projects ── */
+    .projects-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .projects-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: 100%;
+    }
+
+    .project-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
+      gap: 1rem;
+    }
+
+    .project-card:hover {
+      border-color: var(--grad-a);
+      box-shadow: 0 4px 20px rgba(76, 63, 212, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .project-card-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .project-name {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .project-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .project-arrow {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      transition: background 0.18s, border-color 0.18s, color 0.18s;
+    }
+
+    .project-card:hover .project-arrow {
+      background: linear-gradient(135deg, var(--grad-a), var(--grad-b));
+      border-color: transparent;
+      color: #fff;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--faint);
+    }
+
+    footer a {
+      color: var(--faint);
+      text-decoration: none;
+    }
+    footer a:hover { color: var(--muted); }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      nav { padding: 1.25rem 1.25rem; }
+      .hero { padding: 0 1.25rem 3rem; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav" id="top">
-    <div class="nav-inner">
-      <a href="#top" class="logo" aria-label="paulaiverse home">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-          <circle cx="16" cy="16" r="14" stroke="var(--color-primary)" stroke-width="2"/>
-          <circle cx="16" cy="16" r="5" fill="var(--color-primary)"/>
-          <path d="M16 2 C16 2 22 8 22 16 C22 24 16 30 16 30" stroke="var(--color-primary)" stroke-width="1.5" fill="none" opacity="0.5"/>
-          <path d="M16 2 C16 2 10 8 10 16 C10 24 16 30 16 30" stroke="var(--color-primary)" stroke-width="1.5" fill="none" opacity="0.5"/>
-          <line x1="2" y1="16" x2="30" y2="16" stroke="var(--color-primary)" stroke-width="1.5" opacity="0.5"/>
-        </svg>
-        <span class="logo-text"><span class="logo-gradient">paul</span>AI<span class="logo-gradient">verse</span></span>
-      </a>
-      <div class="nav-actions">
-        <div class="filter-pills" id="filter-pills">
-          <button class="pill active" data-filter="all">All</button>
-          <button class="pill" data-filter="both">PM + HFR</button>
-          <button class="pill" data-filter="pm">PM only</button>
-          <button class="pill" data-filter="hfr">HFR only</button>
-        </div>
-        <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        </button>
-      </div>
-    </div>
+  <nav>
+    <a href="/" class="wordmark"><span class="g">ploota</span></a>
   </nav>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-inner">
-      <p class="hero-eyebrow">Personal Knowledge Base · v1.0 · March 2026</p>
-      <h1 class="hero-title"><span class="plain-text">Welcome to the </span><span class="gradient-text">paul</span><span class="plain-text">AI</span><span class="gradient-text">verse</span></h1>
-      <p class="hero-subtitle">AI concepts organized for a career at the intersection of product management and human factors research. Built to keep expanding.</p>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num" id="count-both">—</span>
-          <span class="stat-label">PM + HFR topics</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num" id="count-pm">—</span>
-          <span class="stat-label">PM-focused</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num" id="count-hfr">—</span>
-          <span class="stat-label">HFR-focused</span>
-        </div>
-      </div>
-    </div>
-  </header>
+  <main class="hero">
+    <p class="hero-label">ploota.online</p>
+    <h1 class="hero-headline"><span class="g">PLOOTA</span><br>is experimenting<br>here.</h1>
 
-  <!-- CHANGELOG -->
-  <section class="changelog">
-    <div class="changelog-inner">
-      <button class="cl-header" id="cl-toggle" aria-expanded="false">
-        <span class="cl-title">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          What's changed
-        </span>
-        <svg class="cl-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="cl-content" id="cl-content">
-        <ul class="cl-list" id="changelog-list"></ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- LEGEND -->
-  <section class="legend-bar">
-    <div class="legend-inner">
-      <span class="legend-item"><span class="badge badge-both">PM + HFR</span> Relevant to both roles</span>
-      <span class="legend-item"><span class="badge badge-pm">PM</span> Product management focus</span>
-      <span class="legend-item"><span class="badge badge-hfr">HFR</span> Human factors research focus</span>
-    </div>
-  </section>
-
-  <!-- MAIN GRID -->
-  <main class="main" id="main-grid">
-    <div class="topics-grid" id="topics-grid">
-      <!-- Cards injected by JS -->
-    </div>
-    <p class="empty-msg" id="empty-msg" style="display:none;">No topics match this filter.</p>
+    <p class="projects-label">View my projects</p>
+    <ul class="projects-list">
+      <li>
+        <a href="/paulaiverse/" class="project-card">
+          <div class="project-card-left">
+            <span class="project-name"><span class="g">paul</span>AI<span class="g">verse</span></span>
+            <span class="project-desc">A personal knowledge base — AI concepts for PM and human factors research.</span>
+          </div>
+          <span class="project-arrow" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </li>
+    </ul>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p class="footer-note">Keep expanding — every concept you learn belongs here.</p>
-    <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer" class="footer-credit">Created with Perplexity Computer</a>
+  <footer>
+    <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
   </footer>
 
-  <script src="data.js"></script>
-  <script src="app.js"></script>
 </body>
 </html>
