@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The World — Eduardo Galeano</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --navy: #1b2a45;
+      --body: #2e2e2e;
+      --muted: #999;
+      --rule: #ddd;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background: #fff;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 100vh;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ── Left column ── */
+    .col-image {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem;
+      border-right: 1px solid var(--rule);
+    }
+
+    .col-image img {
+      display: block;
+      max-width: 100%;
+      max-height: calc(100vh - 7rem);
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .col-image figcaption {
+      margin-top: 0.9rem;
+      font-size: 0.82rem;
+      font-style: italic;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* ── Right column ── */
+    .col-text {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2.5rem 3rem 2.5rem 3rem;
+      min-height: 0;
+    }
+
+    /* ── Title + author + rule grouped to constrain rule width ── */
+    .section__head {
+      width: fit-content;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ── Title ── */
+    .section__title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.25rem, 4.1vw, 4.1rem);
+      line-height: 0.9;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ── Author ── */
+    .section__author {
+      font-size: 0.82rem;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── Rule ── */
+    .section__rule {
+      border: none;
+      border-top: 1px solid var(--navy);
+      width: 100%;
+      margin-bottom: 0;
+      opacity: 0.2;
+    }
+
+    /* ── Poem text ── */
+    .section__text {
+      margin-top: 1.2rem;
+      font-size: clamp(0.78rem, 1.05vw, 0.9rem);
+      line-height: 1.75;
+      color: var(--body);
+    }
+
+    .section__text p {
+      margin-bottom: 0.75em;
+    }
+
+    .section__text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section__text .dialogue {
+      font-style: italic;
+      padding-left: 0.8em;
+    }
+
+    /* ── Translator credit ── */
+    .section__credit {
+      margin-top: 1.4rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <a href="/" style="
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 100;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #999;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: color 0.15s;
+  " onmouseover="this.style.color='#2e2e2e'" onmouseout="this.style.color='#999'" aria-label="Back to ploota">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    ploota
+  </a>
+
+  <!-- Left: image -->
+  <figure class="col-image">
+    <img src="letterpress-2.jpg" alt="Brilla con tu luz propia — letterpress poster" />
+    <figcaption>ploota, letterpress, 11×17 in, 2022</figcaption>
+  </figure>
+
+  <!-- Right: text -->
+  <div class="col-text">
+
+    <div class="section section--en">
+      <div class="section__head">
+        <h1 class="section__title">The World</h1>
+        <p class="section__author">Eduardo Galeano - The Book of Embraces</p>
+        <hr class="section__rule" />
+      </div>
+      <div class="section__text">
+        <p>A man from the town of Neguá, on the coast of Colombia, could climb into the sky.</p>
+        <p>On his return, he described his trip. He told how he had contemplated human life from on high. He said we are a sea of tiny flames.</p>
+        <p class="dialogue">&ldquo;The world,&rdquo; he revealed, &ldquo;is a heap of people, a sea of tiny flames.&rdquo;</p>
+        <p>Each person shines with his or her own light. No two flames are alike. There are big flames and little flames, flames of every color. Some people&rsquo;s flames are so still they don&rsquo;t even flicker in the wind, while others have wild flames that fill the air with sparks. Some foolish flames neither burn nor shed light, but others blaze with life so fiercely that you can&rsquo;t look at them without blinking and if you approach, you shine in fire.</p>
+      </div>
+      <p class="section__credit">Translated by Cedric Belfrage</p>
+    </div>
+
+    <div class="section section--es">
+      <div class="section__head">
+        <h1 class="section__title">El Mundo</h1>
+        <p class="section__author">Eduardo Galeano - El Libro de los Abrazos</p>
+        <hr class="section__rule" />
+      </div>
+      <div class="section__text">
+        <p>Un hombre del pueblo de Neguá, en la costa de Colombia, pudo subir al cielo.</p>
+        <p>A la vuelta, contó. Dijo que había contemplado, desde allá arriba, la vida humana. Y dijo que somos un mar de fueguitos.</p>
+        <p class="dialogue">- El mundo es eso - reveló - un montón de gente, un mar de fueguitos.</p>
+        <p>Cada persona brilla con la luz propia entre todas las demás. No hay dos fuegos iguales. Hay gente de fuegos grandes y fuegos chicos y fuegos de todos los colores. Hay gente de fuego sereno, que ni se entera del viento, y gente de fuego loco, que llena el aire de chispas; algunos fuegos, fuegos bobos, no alumbran ni queman, pero otros arden la vida con tantas ganas que no se puede mirarlos sin parpadear, y quien se acerca se enciende.</p>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
