@@ -23,7 +23,6 @@
 
     html, body {
       height: 100%;
-      overflow: hidden;
     }
 
     body {
@@ -37,12 +36,15 @@
     /* ── Left column ── */
     .col-image {
       height: 100vh;
+      position: sticky;
+      top: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 2.5rem;
       border-right: 1px solid var(--rule);
+      overflow: hidden;
     }
 
     .col-image img {
@@ -71,12 +73,44 @@
     }
 
     .section {
-      flex: 1;
+      flex: 0 0 auto;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 2.5rem 3rem 2.5rem 3rem;
-      min-height: 0;
+      padding: 3rem 3rem;
+      min-height: 50vh;
+    }
+
+    /* ── Divider between sections ── */
+    .section + .section {
+      border-top: 1px solid var(--rule);
+    }
+
+    /* ── Responsive: stack on small screens ── */
+    @media (max-width: 700px) {
+      body {
+        display: block;
+        height: auto;
+        overflow: auto;
+      }
+      .col-image {
+        position: static;
+        height: auto;
+        padding: 2rem 1.5rem 1.5rem;
+        border-right: none;
+        border-bottom: 1px solid var(--rule);
+      }
+      .col-image img {
+        max-height: 60vw;
+      }
+      .col-text {
+        height: auto;
+        overflow: visible;
+      }
+      .section {
+        min-height: auto;
+        padding: 2rem 1.5rem;
+      }
     }
 
     /* ── Title + author + rule grouped to constrain rule width ── */
