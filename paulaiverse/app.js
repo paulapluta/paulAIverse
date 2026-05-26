@@ -20,15 +20,17 @@
     });
   }
 
-  // ─── "New" badge logic (items added within 30 days) ─────────────────────
-  const NOW = new Date();
-  const NEW_WINDOW_DAYS = 30;
+  // ─── "New" badge logic (items added since the previous update) ───────────
+  // NEW shows only for items added in the most recent changelog batch.
+  // Once a new update is published, all previous "new" items lose the badge.
+  const LATEST_UPDATE = CHANGELOG.length > 0 ? CHANGELOG[0].date : null;
+  const PREV_UPDATE   = CHANGELOG.length > 1 ? CHANGELOG[1].date : null;
 
   function isNew(dateStr) {
-    if (!dateStr) return false;
-    const added = new Date(dateStr);
-    const diffDays = (NOW - added) / (1000 * 60 * 60 * 24);
-    return diffDays <= NEW_WINDOW_DAYS;
+    if (!dateStr || !LATEST_UPDATE) return false;
+    // Show NEW only if item was added on or after the most recent update date
+    // (i.e. it belongs to the current/latest batch)
+    return dateStr >= LATEST_UPDATE;
   }
 
   // ─── Count stats ────────────────────────────────────────────────────────
