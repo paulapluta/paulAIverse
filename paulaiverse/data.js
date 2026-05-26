@@ -527,8 +527,8 @@ const TOPICS = [
     title: "AI Memory & Personalization",
     category: "both",
     addedDate: "2026-05-26",
-    summary: "How AI systems remember you — and what that means for trust, autonomy, and product design.",
-    details: "AI memory has moved from novelty to infrastructure. ChatGPT stores cross-session context, Claude captures preferences from past conversations, and Google's Gemini Spark (announced I/O 2026) acts as a 24/7 personal agent that learns your unique preferences and interactions. Google's Personal Intelligence now spans 200 countries with Gmail and Photos integration. For PMs, memory is a new product dimension: memory on/off toggles, user control surfaces, and trust mechanics are core design decisions. For HFR researchers, the questions are sharper: how do users form mental models of what an AI knows about them, and when does personalization feel helpful vs. invasive?",
+    tagline: "When AI systems remember you — trust, control, and the design of persistent context.",
+    summary: "AI memory has moved from novelty to infrastructure. ChatGPT stores cross-session context, Claude captures preferences from past conversations, and Google's Gemini Spark (announced I/O 2026) acts as a 24/7 personal agent that learns your unique preferences and interactions. Google's Personal Intelligence now spans 200 countries with Gmail and Photos integration. For PMs, memory is a new product dimension: memory on/off toggles, user control surfaces, and trust mechanics are core design decisions. For HFR researchers: how do users form mental models of what an AI knows about them, and when does personalization feel helpful vs. invasive?",
     keyTerms: ["persistent memory", "personalization", "user context", "Gemini Spark", "Personal Intelligence", "memory management", "user control", "privacy"],
     researchQuestions: [
       "How do users conceptualize what an AI remembers vs. what it knows?",
@@ -536,15 +536,15 @@ const TOPICS = [
       "When does AI personalization cross into discomfort — and what predicts that threshold?",
       "How does memory affect trust calibration over repeated AI interactions?"
     ],
-    source: "https://mem0.ai/blog/state-of-ai-agent-memory-2026"
+    learnMore: "https://mem0.ai/blog/state-of-ai-agent-memory-2026"
   },
   {
     id: "ai-regulation-policy",
     title: "AI Regulation & Policy",
     category: "both",
     addedDate: "2026-05-26",
-    summary: "The legal landscape for AI is fragmenting fast — U.S. federal vs. state, EU delays, and new transparency obligations all active in 2026.",
-    details: "2026 is the year AI regulation moved from future concern to present compliance pressure. California's AI Transparency Act and Texas TRAIGA both took effect January 1, 2026, requiring watermarking, training data disclosure, and deployer accountability. A December 2025 Trump executive order directed the DOJ to challenge state AI laws on federal preemption grounds, with active litigation in Colorado, New York, and Illinois. The EU AI Act's General Purpose AI obligations are live (Aug 2025), but high-risk system rules are being delayed. For PMs: every AI product shipped in 2026 likely touches at least one active regulation. For HFR researchers: disclosure design, consent flows, and user comprehension of AI systems are now legally mandated concerns, not just good practice.",
+    tagline: "The legal landscape is fragmenting — compliance is no longer optional for AI product teams.",
+    summary: "2026 is the year AI regulation moved from future concern to present compliance pressure. California's AI Transparency Act and Texas TRAIGA both took effect January 1, 2026, requiring watermarking, training data disclosure, and deployer accountability. A December 2025 Trump executive order directed the DOJ to challenge state AI laws on federal preemption grounds, with active litigation in Colorado, New York, and Illinois. The EU AI Act's General Purpose AI obligations are live (Aug 2025). For HFR researchers: disclosure design, consent flows, and user comprehension of AI systems are now legally mandated concerns, not just good practice.",
     keyTerms: ["EU AI Act", "TRAIGA", "California AI Transparency Act", "GPAI", "federal preemption", "watermarking", "disclosure", "risk classification", "compliance"],
     researchQuestions: [
       "How do users respond to legally mandated AI disclosures — do they read them, trust them, or ignore them?",
@@ -552,15 +552,15 @@ const TOPICS = [
       "How should AI product teams prioritize compliance across fragmented regulatory regimes?",
       "What are the human factors implications of watermarking and provenance labeling on user trust?"
     ],
-    source: "https://presenc.ai/research/ai-policy-regulation-tracker-2026"
+    learnMore: "https://artificialintelligenceact.eu/the-act/"
   },
   {
     id: "ai-in-search",
     title: "AI in Search",
     category: "pm",
     addedDate: "2026-05-26",
-    summary: "Search is becoming an agent platform — AI Mode, background information agents, and generative UI mark the biggest shift in search UX in 25 years.",
-    details: "Google I/O 2026 (May 19) was a turning point: AI Mode now serves over 1 billion monthly users, with queries more than doubling every quarter. The new intelligent Search box accepts text, images, files, videos, and Chrome tabs, with AI reasoning across all of them. Background information agents operate 24/7, scanning blogs, news, social posts, and real-time data on your behalf. Search can now build custom interactive UIs, graphs, and simulations on the fly. For PMs: search is no longer a query box — it is an agent orchestration surface. Traditional SEO assumptions, discoverability models, and content strategy all need rethinking. Google's universal shopping cart signals that the entire purchase funnel is collapsing into the search experience itself.",
+    tagline: "Search is now an agent platform — the biggest UX shift in 25 years.",
+    summary: "Google I/O 2026 (May 19) was a turning point: AI Mode now serves over 1 billion monthly users, with queries more than doubling every quarter. The new intelligent Search box accepts text, images, files, videos, and Chrome tabs. Background information agents operate 24/7, scanning blogs, news, social posts, and real-time data on your behalf. Search can now build custom interactive UIs, graphs, and simulations on the fly. For PMs: search is no longer a query box — it is an agent orchestration surface. Traditional SEO assumptions, discoverability models, and content strategy all need rethinking. Google's universal shopping cart signals that the entire purchase funnel is collapsing into the search experience.",
     keyTerms: ["AI Mode", "Google Antigravity", "information agents", "generative UI", "Personal Intelligence", "Gemini 3.5 Flash", "search agents", "conversational search"],
     researchQuestions: [
       "How do users evaluate the credibility of AI-generated search results vs. traditional blue links?",
@@ -568,6 +568,6 @@ const TOPICS = [
       "How does background agent search change user information-seeking strategies?",
       "What are the PM implications of search platforms owning the full purchase funnel?"
     ],
-    source: "https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/"
+    learnMore: "https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/"
   },
 ];
