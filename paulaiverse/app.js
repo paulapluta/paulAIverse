@@ -32,13 +32,15 @@
   }
 
   // ─── Count stats ────────────────────────────────────────────────────────
-  const countBoth = TOPICS.filter(t => t.category === 'both').length;
-  const countPm   = TOPICS.filter(t => t.category === 'pm').length;
-  const countHfr  = TOPICS.filter(t => t.category === 'hfr').length;
+  const countBoth  = TOPICS.filter(t => t.category === 'both').length;
+  const countPm    = TOPICS.filter(t => t.category === 'pm').length;
+  const countHfr   = TOPICS.filter(t => t.category === 'hfr').length;
+  const countTotal = TOPICS.length;
 
-  document.getElementById('count-both').textContent = countBoth;
-  document.getElementById('count-pm').textContent   = countPm;
-  document.getElementById('count-hfr').textContent  = countHfr;
+  document.getElementById('count-total').textContent = countTotal;
+  document.getElementById('count-both').textContent  = countBoth;
+  document.getElementById('count-pm').textContent    = countPm;
+  document.getElementById('count-hfr').textContent   = countHfr;
 
   // ─── Render changelog ────────────────────────────────────────────────────
   function renderChangelog() {
