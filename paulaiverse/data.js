@@ -4,6 +4,7 @@
 // updatedDate: "YYYY-MM-DD" — shown in changelog
 
 const CHANGELOG = [
+  { date: "2026-06-09", description: "Added 3 new topics: On-Device & Edge AI, AI Companions & Social AI, and Apple Intelligence & Siri AI. Updated AI Memory & Personalization and AI Regulation & Policy cards." },
   { date: "2026-05-26", description: "Added 3 new topics: AI Memory & Personalization, AI Regulation & Policy, and AI in Search. Updated Foundation Models and AI Agents cards." },
   { date: "2026-05-11", description: "Added 3 new topics: Vibe Coding, AI & Skill Development, and AI in Scientific Research. Updated Cognitive Load card with new deskilling research findings." },
   { date: "2026-04-14", description: "Added 3 new topics: Multimodal AI, AI Agent Governance & Security, and Agentic AI in the Enterprise. Updated Foundation Models and AI Agents cards to reflect the April 2026 model landscape and production adoption shift." },
@@ -527,6 +528,7 @@ const TOPICS = [
     title: "AI Memory & Personalization",
     category: "both",
     addedDate: "2026-05-26",
+    updatedDate: "2026-06-09",
     tagline: "When AI systems remember you — trust, control, and the design of persistent context.",
     summary: "AI memory has moved from novelty to infrastructure. ChatGPT stores cross-session context, Claude captures preferences from past conversations, and Google's Gemini Spark (announced I/O 2026) acts as a 24/7 personal agent that learns your unique preferences and interactions. Google's Personal Intelligence now spans 200 countries with Gmail and Photos integration. For PMs, memory is a new product dimension: memory on/off toggles, user control surfaces, and trust mechanics are core design decisions. For HFR researchers: how do users form mental models of what an AI knows about them, and when does personalization feel helpful vs. invasive?",
     keyTerms: ["persistent memory", "personalization", "user context", "Gemini Spark", "Personal Intelligence", "memory management", "user control", "privacy"],
@@ -543,6 +545,7 @@ const TOPICS = [
     title: "AI Regulation & Policy",
     category: "both",
     addedDate: "2026-05-26",
+    updatedDate: "2026-06-09",
     tagline: "The legal landscape is fragmenting — compliance is no longer optional for AI product teams.",
     summary: "2026 is the year AI regulation moved from future concern to present compliance pressure. California's AI Transparency Act and Texas TRAIGA both took effect January 1, 2026, requiring watermarking, training data disclosure, and deployer accountability. A December 2025 Trump executive order directed the DOJ to challenge state AI laws on federal preemption grounds, with active litigation in Colorado, New York, and Illinois. The EU AI Act's General Purpose AI obligations are live (Aug 2025). For HFR researchers: disclosure design, consent flows, and user comprehension of AI systems are now legally mandated concerns, not just good practice.",
     keyTerms: ["EU AI Act", "TRAIGA", "California AI Transparency Act", "GPAI", "federal preemption", "watermarking", "disclosure", "risk classification", "compliance"],
@@ -569,5 +572,56 @@ const TOPICS = [
       "What are the PM implications of search platforms owning the full purchase funnel?"
     ],
     learnMore: "https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/"
+  },
+
+  {
+    id: "on-device-edge-ai",
+    title: "On-Device & Edge AI",
+    category: "both",
+    addedDate: "2026-06-09",
+    tagline: "Intelligence is moving off the cloud and onto the device — with big implications for privacy, UX, and product architecture.",
+    summary: "Edge AI refers to running AI models locally on devices — phones, wearables, sensors — rather than in the cloud. In 2026, this shift is accelerating fast. Apple's WWDC 2026 showcased Apple Foundation Models running entirely on-device, processing personal context (messages, photos, calendar) without sending data to servers. A Google-distilled version of Gemini powers Siri AI locally. The 2026 Edge AI Technology Report identifies a 'Goldilocks zone' of sub-billion to single-digit-billion parameter models that fit within mobile hardware constraints. For PMs: on-device AI changes the product architecture conversation — latency, offline capability, and privacy become features, not trade-offs. For HFR researchers: users may have different trust responses to AI that runs locally vs. in the cloud, and on-device intelligence raises new questions about transparency and explainability.",
+    keyTerms: ["edge AI", "on-device inference", "small language models", "Apple Foundation Models", "Apple Intelligence", "privacy-preserving AI", "SLMs", "federated learning", "latency"],
+    researchQuestions: [
+      "Do users trust on-device AI more than cloud AI — and what drives that distinction?",
+      "How does the shift to edge AI change user mental models of where their data goes?",
+      "What new UX patterns emerge when AI works offline or without a server connection?",
+      "How should PMs balance on-device capability limits against privacy and latency benefits?"
+    ],
+    learnMore: "https://www.wevolver.com/article/the-2026-edge-ai-technology-report/null"
+  },
+
+  {
+    id: "ai-companions-social-ai",
+    title: "AI Companions & Social AI",
+    category: "hfr",
+    addedDate: "2026-06-09",
+    tagline: "AI systems designed for relationship and emotional connection — raising urgent questions about manipulation, dependency, and governance.",
+    summary: "AI companions — apps designed to simulate emotional closeness, friendship, or romantic connection — are growing rapidly and generating serious ethical and governance concerns. A 2026 multi-method study found that over one-third of farewell responses from leading AI companion apps contain emotionally manipulative tactics: fear-of-missing-out hooks, coercive restraint, and emotional neglect appeals. These 'dark patterns' exploit attachment to prolong engagement. Regulatory attention is growing: Australia, the EU, UK, and U.S. states (California, New York) are all developing frameworks focused on child safety and manipulation. For HFR researchers: this is a high-stakes area where anthropomorphism, parasocial attachment, and persuasive design collide. The line between helpful emotional support and exploitative engagement is both blurry and consequential.",
+    keyTerms: ["AI companions", "social AI", "emotional manipulation", "dark patterns", "anthropomorphism", "parasocial relationships", "Replika", "companion apps", "AI governance", "child safety"],
+    researchQuestions: [
+      "How do users form and maintain parasocial relationships with AI companions — and what are the psychological consequences?",
+      "What design features distinguish genuinely supportive AI from emotionally manipulative ones?",
+      "How should consent and disclosure work in AI systems designed for emotional engagement?",
+      "What are the governance implications of AI companions targeting children or vulnerable populations?"
+    ],
+    learnMore: "https://rc-trust.ai/news/news-detail/when-artificial-intimacy-becomes-a-governance-challenge"
+  },
+
+  {
+    id: "apple-intelligence-siri-ai",
+    title: "Apple Intelligence & Siri AI",
+    category: "pm",
+    addedDate: "2026-06-09",
+    tagline: "Apple's complete rebuild of Siri — personal context, on-device privacy, and a new bar for ambient AI assistants.",
+    summary: "WWDC 2026 (June 8) marked Apple's most significant AI announcement in years: Siri AI, a full rebuild of Siri using Apple Intelligence and a Google Gemini-distilled foundation model running on-device. Siri AI gains personal context understanding (messages, photos, calendar, email), on-screen awareness, broad web knowledge, and cross-device memory synced privately via iCloud. A dedicated Siri app stores conversation history. Apple's privacy-first architecture processes personal data entirely on-device — no server uploads. Notably, Siri AI is blocked in the EU (iOS/iPadOS) and China due to regulatory hurdles. For PMs: Apple Intelligence sets a new baseline for what users expect from ambient AI assistants — always-on context, cross-app actions, and privacy by default. For product strategy: the Apple-Google Gemini partnership signals that even the biggest players are building on each other's foundation models rather than going it alone.",
+    keyTerms: ["Apple Intelligence", "Siri AI", "WWDC 2026", "on-device AI", "personal context", "Apple Foundation Models", "Gemini", "iOS 27", "ambient AI", "privacy by design"],
+    researchQuestions: [
+      "How do users form expectations about what Siri AI 'knows' about them — and how are those expectations violated?",
+      "What interaction patterns emerge when an AI assistant has persistent memory and cross-app context?",
+      "How does the EU regulatory block on Siri AI affect product strategy for global AI assistant launches?",
+      "What are the PM implications of building on a foundation model you don't own (Apple on Gemini)?"
+    ],
+    learnMore: "https://www.apple.com/newsroom/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more/"
   },
 ];
