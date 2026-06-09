@@ -4,7 +4,7 @@
 // updatedDate: "YYYY-MM-DD" — shown in changelog
 
 const CHANGELOG = [
-  { date: "2026-06-09", description: "Added 3 new topics: On-Device & Edge AI, AI Companions & Social AI, and Apple Intelligence & Siri AI. Updated AI Memory & Personalization and AI Regulation & Policy cards." },
+  { date: "2026-06-09", description: "Added TPM (Technical Program Manager) dimension: 15 existing topics marked TPM-relevant with dedicated TPM questions. 3 new TPM-focused topics added: AI Observability & LLM Monitoring, LLMOps, and AI-Induced Technical Debt." },
   { date: "2026-05-26", description: "Added 3 new topics: AI Memory & Personalization, AI Regulation & Policy, and AI in Search. Updated Foundation Models and AI Agents cards." },
   { date: "2026-05-11", description: "Added 3 new topics: Vibe Coding, AI & Skill Development, and AI in Scientific Research. Updated Cognitive Load card with new deskilling research findings." },
   { date: "2026-04-14", description: "Added 3 new topics: Multimodal AI, AI Agent Governance & Security, and Agentic AI in the Enterprise. Updated Foundation Models and AI Agents cards to reflect the April 2026 model landscape and production adoption shift." },
@@ -60,6 +60,20 @@ const TOPICS = [
     category: "both",
     title: "Large Language Models (LLMs)",
     tagline: "The engine behind most modern AI systems.",
+    tpm: true,
+    tpmQuestions: [
+      "What governance checkpoints should a TPM require before an autonomous agent is granted production access?",
+      "How do you define and enforce permission scope and blast radius limits in an agentic systems program?",
+      "What incident response runbooks should a TPM establish for agents that take unexpected or harmful actions?",
+      "How do you structure a cross-functional security review program for agentic AI features?"
+],
+    tpm: true,
+    tpmQuestions: [
+      "How do you scope and sequence an LLM integration program across multiple product teams?",
+      "What are the key technical dependencies and integration risks when adopting a third-party LLM API at scale?",
+      "How do you define and measure 'done' for an LLM feature when output quality is probabilistic?",
+      "What SLA and fallback requirements should a TPM define for systems that depend on external LLM APIs?"
+],
     summary: "LLMs are AI models trained on massive text datasets to understand and generate language. They predict the next token — word fragment — based on context. GPT-4, Claude, Gemini, and Llama are all LLMs. They are not databases, search engines, or rule systems: they generate plausible continuations, which means they can be wrong confidently.",
     whyItMatters: {
       pm: "LLMs are the core technology in most AI products you'll build or evaluate. Understanding their capabilities, limitations, and failure modes lets you scope features realistically.",
@@ -79,6 +93,13 @@ const TOPICS = [
     category: "both",
     title: "AI Agents & Agentic Systems",
     tagline: "AI that acts, not just answers.",
+    tpm: true,
+    tpmQuestions: [
+      "How do you scope and estimate effort for agentic systems when behavior is emergent and hard to predict?",
+      "What are the critical path dependencies in a multi-agent architecture program?",
+      "How do you define rollback and incident response procedures for autonomous agents in production?",
+      "What observability and kill-switch requirements should a TPM mandate for agentic systems?"
+],
     summary: "An AI agent is a system that takes a high-level goal and autonomously plans, uses tools, and executes multi-step tasks — without a human prompt at each step. Unlike a chatbot that responds once, an agent runs a loop: perceive → plan → act → observe → repeat. Current agents are powerful for well-scoped tasks but unreliable for complex, open-ended ones.",
     whyItMatters: {
       pm: "Agents are the next generation of AI products. PMs need to define the human-in-the-loop checkpoints, failure recovery paths, and trust thresholds for agentic features.",
@@ -99,6 +120,13 @@ const TOPICS = [
     category: "both",
     title: "Model Context Protocol (MCP)",
     tagline: "The USB-C port for AI — a standard for connecting models to tools.",
+    tpm: true,
+    tpmQuestions: [
+      "How does MCP adoption change the integration surface area a TPM needs to track?",
+      "What security review gates should a TPM require before approving new MCP server integrations?",
+      "How do you manage versioning and deprecation of MCP servers across a distributed product ecosystem?",
+      "What does a TPM need to understand about MCP to effectively scope AI agent integration programs?"
+],
     summary: "MCP is an open standard (created by Anthropic, Nov 2024) that lets AI systems connect to external data sources, apps, and tools in a standardized way. Before MCP, every integration was custom. MCP defines a shared language: an AI client asks an MCP server 'what can you do?', the server responds with a list of tools, and the AI calls them as needed. Think of it like a universal adapter.",
     whyItMatters: {
       pm: "MCP is driving rapid ecosystem growth — products that expose MCP servers become composable with AI. PMs need to evaluate when to build MCP-native features vs. direct integrations.",
@@ -118,6 +146,13 @@ const TOPICS = [
     category: "both",
     title: "Retrieval-Augmented Generation (RAG)",
     tagline: "Giving AI models access to knowledge beyond their training.",
+    tpm: true,
+    tpmQuestions: [
+      "What are the infrastructure dependencies in a RAG pipeline that a TPM must track for delivery?",
+      "How do you define acceptance criteria for retrieval quality in a RAG system?",
+      "What are the data pipeline ownership and update cadence requirements a TPM should establish for RAG knowledge bases?",
+      "How do you scope the ongoing operational cost of maintaining a production RAG system?"
+],
     summary: "LLMs are trained on data with a cutoff date and know nothing about your specific documents. RAG solves this: before generating a response, the system retrieves relevant documents from a database and injects them into the model's context. The model then answers based on retrieved facts rather than pure memory. This dramatically reduces hallucinations for domain-specific questions.",
     whyItMatters: {
       pm: "RAG is the most common pattern for enterprise AI products — customer support, internal knowledge bases, code assistants. PMs need to understand retrieval quality, chunking, and reranking as product levers.",
@@ -137,6 +172,13 @@ const TOPICS = [
     category: "both",
     title: "Prompt Engineering & Context Engineering",
     tagline: "The craft of getting what you want from an LLM.",
+    tpm: true,
+    tpmQuestions: [
+      "How do you version-control and govern prompts across a product portfolio as a TPM?",
+      "What change management process should a TPM require for prompt updates that affect production behavior?",
+      "How do you estimate the engineering effort of prompt iteration cycles in a project plan?",
+      "What testing and rollback requirements should a TPM define for prompt changes in production systems?"
+],
     summary: "Prompt engineering is designing inputs to LLMs to reliably produce useful outputs. Context engineering is the broader discipline — structuring everything the model receives: instructions, examples, retrieved documents, conversation history, tool outputs. As models improve, raw prompting matters less; context design matters more. Both are core PM and researcher skills because they shape system behavior without changing the model.",
     whyItMatters: {
       pm: "Most AI product 'features' are really prompt and context design. Understanding this gives PMs direct leverage to improve product behavior without engineering changes.",
@@ -156,6 +198,13 @@ const TOPICS = [
     category: "both",
     title: "AI Ethics, Safety & Alignment",
     tagline: "Making sure AI systems do what we actually want.",
+    tpm: true,
+    tpmQuestions: [
+      "What safety review gates should a TPM build into the AI feature release process?",
+      "How do you scope a responsible AI review program — who is involved, what is the timeline, and what can block a launch?",
+      "What documentation and audit trail requirements should a TPM establish for AI systems in regulated industries?",
+      "How do you manage the cross-functional dependencies between legal, policy, and engineering in an AI safety program?"
+],
     summary: "Alignment is the problem of ensuring AI systems pursue human-intended goals. Safety is designing systems that fail gracefully and don't cause harm. Ethics covers fairness, bias, privacy, and societal impact. These aren't compliance checkboxes — they're fundamental design constraints. RLHF (Reinforcement Learning from Human Feedback) is the main technique used to align current models to human values.",
     whyItMatters: {
       pm: "Safety and ethics are product requirements, not afterthoughts. PMs at AI companies must define acceptable use policies, safeguards, and escalation paths for model failures.",
@@ -218,6 +267,13 @@ const TOPICS = [
     category: "pm",
     title: "Agentic AI in the Enterprise",
     tagline: "Moving AI agents from experiments to production — and why most fail.",
+    tpm: true,
+    tpmQuestions: [
+      "How do you scope and sequence an enterprise agent rollout program across business units with different risk tolerances?",
+      "What change management and user training programs must a TPM plan alongside an agentic AI deployment?",
+      "How do you define success metrics for an enterprise agent program — and who owns them?",
+      "What vendor management and SLA requirements should a TPM establish for enterprise AI agent platforms?"
+],
     summary: "2026 is the year AI agents moved from lab to production. 65% of organizations are experimenting with agents, but fewer than 25% have successfully scaled them. Gartner's first-ever AI agent report (April 2026) found 42% of companies plan to deploy within 12 months — but predicts 40% of those projects will be abandoned by 2027 due to costs and security. The real bottleneck isn't model capability: it's clean data (Snowflake), integration complexity, workflow redesign, and organizational change. By end of 2026, 40% of business applications are expected to include AI agents — up from under 5% in 2025.",
     whyItMatters: {
       pm: "PMs leading agentic product initiatives need to plan for the 'scaling wall' — the gap between a working demo and a reliable production deployment. Success requires defining governance frameworks, spending controls, and human-override paths before launch, not after."
@@ -253,6 +309,13 @@ const TOPICS = [
     category: "pm",
     title: "MLOps (Machine Learning Operations)",
     tagline: "The engineering discipline of shipping and maintaining ML models in production.",
+    tpm: true,
+    tpmQuestions: [
+      "How does a TPM structure the CI/CD pipeline for ML models — what gates, approvals, and rollback triggers are needed?",
+      "What cross-functional dependencies (data, infra, compliance) must a TPM map when planning an MLOps program?",
+      "How do you define and enforce model deployment SLAs across engineering and data science teams?",
+      "What monitoring and alerting contracts should a TPM establish between ML and platform teams?"
+],
     summary: "MLOps covers the practices for deploying, monitoring, and updating ML models reliably. For PMs, the key concepts are: models degrade over time (data drift), retraining requires pipelines not just code pushes, and A/B testing AI features has added complexity (model changes interact with product changes). You don't need to run the pipelines — you need to understand what they mean for product velocity and quality.",
     whyItMatters: {
       pm: "MLOps constraints shape your roadmap. Understanding deployment cycles, model latency, cost-per-inference, and monitoring requirements helps you make realistic commitments and trade-off decisions."
@@ -270,6 +333,13 @@ const TOPICS = [
     category: "pm",
     title: "Model Evaluation & Evals",
     tagline: "How do you know if your AI is actually good?",
+    tpm: true,
+    tpmQuestions: [
+      "How do you build an eval cadence into a release program — who owns it and what blocks a ship?",
+      "What are the handoff requirements between model eval and product QA that a TPM should define?",
+      "How do you scope an eval infrastructure build — what's MVP vs. what can be deferred?",
+      "How should a TPM communicate model quality risk to non-technical stakeholders and leadership?"
+],
     summary: "Evals are the test suites for AI systems — datasets and metrics that measure model performance against defined criteria. Unlike traditional software tests (pass/fail), AI evals involve distributions, edge cases, and human judgment. Common metrics: precision, recall, F1-score, BLEU (translation), ROUGE (summarization). But for most product use cases, human eval and task completion rates matter more than academic benchmarks.",
     whyItMatters: {
       pm: "You can't improve what you can't measure. PMs need to define success criteria for AI features before building them, then design eval sets that reflect real user scenarios — not just clean benchmark cases."
@@ -321,6 +391,13 @@ const TOPICS = [
     category: "pm",
     title: "Foundation Models & the Model Landscape",
     tagline: "Knowing your options: which model, when, and why.",
+    tpm: true,
+    tpmQuestions: [
+      "How do you evaluate and select a foundation model vendor — what are the technical, contractual, and operational criteria?",
+      "What are the program risks of depending on a third-party foundation model that is updated without notice?",
+      "How do you scope a model migration program when switching from one foundation model to another?",
+      "What API reliability and cost management contracts should a TPM establish with foundation model providers?"
+],
     summary: "Foundation models are large, general-purpose models that can be adapted for many tasks. As of April 2026, the frontier is: GPT-5.4 (OpenAI, released March 5), Claude Opus 4.6 & Sonnet 4.6 (Anthropic, Feb 2026), Gemini 3.1 Pro (Google — leads 13/16 benchmarks, best cost efficiency), and Grok 4.20 (xAI, multi-agent architecture). The pace of releases has compressed: 7 major models dropped in February 2026 alone. PMs need to understand the trade-offs: capability vs. cost vs. latency vs. privacy (cloud vs. on-device). Model agnosticism — designing your product to work with any capable model — is increasingly important as the landscape shifts every few weeks.",
     whyItMatters: {
       pm: "Model selection is a product and business decision. Vendor lock-in, cost-per-token at scale, and capability gaps across models all affect your product's economics and roadmap."
@@ -340,6 +417,13 @@ const TOPICS = [
     category: "both",
     title: "Vibe Coding",
     tagline: "Building software by describing intent, not writing syntax.",
+    tpm: true,
+    tpmQuestions: [
+      "How does vibe coding change effort estimation and sprint planning when AI generates large code volumes quickly?",
+      "What code review and quality gate requirements should a TPM enforce when most code is AI-generated?",
+      "How do you manage technical ownership and on-call accountability for code that no single engineer fully understands?",
+      "What security audit and dependency review processes should a TPM require for vibe-coded codebases?"
+],
     summary: "Vibe coding is a development method where you describe what you want in natural language and AI generates the code. Coined by Andrej Karpathy in February 2025, it became the Collins Dictionary Word of the Year 2025 after search interest rose 6,700%. By 2026, 92% of US developers use AI coding tools daily and 41% of all global code is AI-generated. The skill shift is real: developers move from 'keyboard operators' to product-director roles — setting goals, judging outputs, and auditing for security. But risks are significant: ~45% of AI-generated code contains security vulnerabilities, and developers can end up with a 'three-month black box' — a codebase nobody understands. The key principle: judgment over syntax.",
     whyItMatters: {
       pm: "Vibe coding directly changes what PMs can build without engineering support — MVPs, prototypes, internal tools. But it also changes what you should expect from your engineering team and how you evaluate technical quality. Understanding the risks (security, maintainability, the 'black box' problem) is essential for scoping AI-assisted development work.",
@@ -547,6 +631,13 @@ const TOPICS = [
     addedDate: "2026-05-26",
     updatedDate: "2026-06-09",
     tagline: "The legal landscape is fragmenting — compliance is no longer optional for AI product teams.",
+    tpm: true,
+    tpmQuestions: [
+      "How do you build regulatory compliance checkpoints into an AI product delivery program?",
+      "What cross-functional program structure does a TPM need to manage AI compliance across legal, engineering, and product?",
+      "How do you scope and track a data documentation and disclosure program required by AI transparency laws?",
+      "What are the program implications of shipping AI features in the EU under the AI Act vs. U.S. state laws?"
+],
     summary: "2026 is the year AI regulation moved from future concern to present compliance pressure. California's AI Transparency Act and Texas TRAIGA both took effect January 1, 2026, requiring watermarking, training data disclosure, and deployer accountability. A December 2025 Trump executive order directed the DOJ to challenge state AI laws on federal preemption grounds, with active litigation in Colorado, New York, and Illinois. The EU AI Act's General Purpose AI obligations are live (Aug 2025). For HFR researchers: disclosure design, consent flows, and user comprehension of AI systems are now legally mandated concerns, not just good practice.",
     keyTerms: ["EU AI Act", "TRAIGA", "California AI Transparency Act", "GPAI", "federal preemption", "watermarking", "disclosure", "risk classification", "compliance"],
     researchQuestions: [
@@ -563,6 +654,13 @@ const TOPICS = [
     category: "pm",
     addedDate: "2026-05-26",
     tagline: "Search is now an agent platform — the biggest UX shift in 25 years.",
+    tpm: true,
+    tpmQuestions: [
+      "How do you scope and prioritize the platform migration required when search becomes an agent orchestration layer?",
+      "What new backend dependencies and latency SLAs does AI-powered search introduce that a TPM must track?",
+      "How do you manage the program risk of depending on Google or Bing search AI infrastructure for a product feature?",
+      "What monitoring and quality contracts should a TPM define for AI-generated search result quality?"
+],
     summary: "Google I/O 2026 (May 19) was a turning point: AI Mode now serves over 1 billion monthly users, with queries more than doubling every quarter. The new intelligent Search box accepts text, images, files, videos, and Chrome tabs. Background information agents operate 24/7, scanning blogs, news, social posts, and real-time data on your behalf. Search can now build custom interactive UIs, graphs, and simulations on the fly. For PMs: search is no longer a query box — it is an agent orchestration surface. Traditional SEO assumptions, discoverability models, and content strategy all need rethinking. Google's universal shopping cart signals that the entire purchase funnel is collapsing into the search experience.",
     keyTerms: ["AI Mode", "Google Antigravity", "information agents", "generative UI", "Personal Intelligence", "Gemini 3.5 Flash", "search agents", "conversational search"],
     researchQuestions: [
@@ -580,6 +678,13 @@ const TOPICS = [
     category: "both",
     addedDate: "2026-06-09",
     tagline: "Intelligence is moving off the cloud and onto the device — with big implications for privacy, UX, and product architecture.",
+    tpm: true,
+    tpmQuestions: [
+      "How does on-device AI change the release program — what new testing, validation, and OTA update requirements apply?",
+      "What are the cross-functional dependencies (firmware, security, ML, UX) a TPM must track for an edge AI feature launch?",
+      "How do you scope a model compression and quantization program for on-device deployment?",
+      "What fallback and degraded-mode requirements should a TPM define for AI features that depend on on-device inference?"
+],
     summary: "Edge AI refers to running AI models locally on devices — phones, wearables, sensors — rather than in the cloud. In 2026, this shift is accelerating fast. Apple's WWDC 2026 showcased Apple Foundation Models running entirely on-device, processing personal context (messages, photos, calendar) without sending data to servers. A Google-distilled version of Gemini powers Siri AI locally. The 2026 Edge AI Technology Report identifies a 'Goldilocks zone' of sub-billion to single-digit-billion parameter models that fit within mobile hardware constraints. For PMs: on-device AI changes the product architecture conversation — latency, offline capability, and privacy become features, not trade-offs. For HFR researchers: users may have different trust responses to AI that runs locally vs. in the cloud, and on-device intelligence raises new questions about transparency and explainability.",
     keyTerms: ["edge AI", "on-device inference", "small language models", "Apple Foundation Models", "Apple Intelligence", "privacy-preserving AI", "SLMs", "federated learning", "latency"],
     researchQuestions: [
@@ -623,5 +728,77 @@ const TOPICS = [
       "What are the PM implications of building on a foundation model you don't own (Apple on Gemini)?"
     ],
     learnMore: "https://www.apple.com/newsroom/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more/"
+  },
+
+  {
+    id: "ai-observability-monitoring",
+    title: "AI Observability & LLM Monitoring",
+    category: "pm",
+    addedDate: "2026-06-09",
+    tpm: true,
+    tagline: "You can't manage what you can't measure — and in production AI, what matters most is output quality, not just uptime.",
+    summary: "AI observability goes beyond traditional APM metrics. For LLM-based systems, you need to track output quality — faithfulness, relevance, hallucination rate, safety — not just latency and error rates. In 2026, purpose-built platforms (LangSmith, Arize, Pydantic Logfire, Datadog LLM Monitoring) provide AI-native tracing: every LLM call, agent step, tool invocation, and retrieval operation logged as a structured trace with token counts, cost, and model parameters attached. For PMs: observability is a product requirement, not an engineering nice-to-have. For TPMs: defining the observability contract — what gets traced, who owns quality thresholds, what triggers a rollback — is a core program deliverable.",
+    keyTerms: ["AI observability", "LLM tracing", "hallucination rate", "faithfulness", "evaluation gates", "production monitoring", "LangSmith", "Arize", "token cost tracking", "quality regression"],
+    researchQuestions: [
+      "What output quality metrics matter most to users — and do they align with what engineering teams measure?",
+      "How do users perceive and respond to AI system failures that aren't obvious errors (e.g. plausible but wrong answers)?",
+      "What mental models do product teams have of AI quality — and where do those models diverge from user experience?",
+      "How should AI quality regressions be communicated to users — and what disclosure is appropriate?"
+    ],
+    tpmQuestions: [
+      "What observability contract — traces, metrics, quality thresholds, alert owners — should a TPM define before an LLM feature ships?",
+      "How do you build evaluation gates into a CI/CD pipeline for AI systems — what blocks a deploy?",
+      "Who owns the production quality dashboard for an AI feature, and what escalation path does a TPM define when quality degrades?",
+      "How do you scope an AI observability infrastructure build — what is MVP, and what instrumentation is required on day one?"
+    ],
+    learnMore: "https://www.confident-ai.com/knowledge-base/compare/best-ai-observability-tools-2026"
+  },
+
+  {
+    id: "llmops",
+    title: "LLMOps",
+    category: "pm",
+    addedDate: "2026-06-09",
+    tpm: true,
+    tagline: "MLOps for language models — prompt versioning, eval gates, model rollback, and token cost management in production.",
+    summary: "LLMOps is the operational discipline specific to deploying and maintaining LLM-based systems in production. It extends MLOps with concerns unique to language models: prompt versioning and change management, evaluation-gated deployments, retrieval pipeline tuning, token cost tracking, model routing (which model for which request), rate limit management, and rollback procedures when model behavior degrades. Key differences from traditional MLOps: the 'model' is often a third-party API you don't own; 'bugs' are probabilistic output degradations not binary failures; and prompt changes are code changes that require the same rigor as software deploys. In 2026, the LLMOps toolchain includes Databricks Mosaic AI, LangSmith, MLflow with LLM tracking, and purpose-built gateways like AWS Bedrock and Azure AI Studio.",
+    keyTerms: ["LLMOps", "prompt versioning", "eval gates", "model routing", "token cost", "rate limiting", "model rollback", "LangSmith", "MLflow", "AI gateway", "deployment pipeline"],
+    researchQuestions: [
+      "How do development teams mentally model the operational lifecycle of an LLM feature vs. a traditional software feature?",
+      "What collaboration patterns emerge between ML engineers, prompt engineers, and software engineers in LLMOps workflows?",
+      "How do teams decide when a model output degradation is severe enough to warrant rollback vs. monitoring?",
+      "What cognitive load do prompt versioning and eval workflows impose on engineers — and how does tooling affect that?"
+    ],
+    tpmQuestions: [
+      "How do you build prompt change management into a release program — what approval, testing, and rollback process is required?",
+      "What token budget and cost alerting contracts should a TPM establish to prevent runaway inference spend?",
+      "How do you scope the LLMOps infrastructure needed to support a multi-model, multi-team AI product portfolio?",
+      "What are the cross-team ownership questions (who owns the eval pipeline? who owns the gateway?) a TPM must resolve before launch?"
+    ],
+    learnMore: "https://www.datadoghq.com/knowledge-center/llmops/"
+  },
+
+  {
+    id: "ai-technical-debt",
+    title: "AI-Induced Technical Debt",
+    category: "pm",
+    addedDate: "2026-06-09",
+    tpm: true,
+    tagline: "AI coding tools ship code faster than teams can understand it — and the debt compounds at the speed of inference.",
+    summary: "AI-induced technical debt is the accumulated cost of poor code quality, rushed decisions, and governance gaps created by rapid AI tool adoption. Generative AI is now the largest single source of technical debt in enterprise software (2026 Gartner data). Vibe coding accelerates feature delivery but produces code with weak test coverage, opaque logic, and security vulnerabilities — 45% of AI-generated code contains security issues. The first-ever Gartner Magic Quadrant for Technical Debt Management Tools launched in 2026, signaling the problem has reached enterprise priority. For TPMs: AI-induced debt accumulates in the critical path of every AI product program. The solution is not to stop using AI tools but to build quality assurance, code review, and governance processes that capture AI's productivity benefits while managing the debt it creates.",
+    keyTerms: ["technical debt", "AI-generated code", "code review", "vibe coding", "security vulnerabilities", "code quality", "governance", "refactoring", "test coverage", "Gartner"],
+    researchQuestions: [
+      "How do engineers cognitively relate to code they did not write but are responsible for maintaining?",
+      "What ownership and accountability patterns emerge in teams where most code is AI-generated?",
+      "How does the speed of AI code generation affect team norms around review, documentation, and testing?",
+      "What are the human factors implications of on-call responsibility for code that no single engineer fully understands?"
+    ],
+    tpmQuestions: [
+      "How do you build a technical debt tracking and remediation cadence into an AI product program — who owns it and when does it get prioritized?",
+      "What code review and quality gate requirements should a TPM enforce when most code is AI-generated?",
+      "How do you make AI-induced technical debt visible to leadership — what metrics and reporting cadence does a TPM establish?",
+      "How do you scope a debt remediation sprint — what is the right ratio of new feature work to debt paydown in an AI-accelerated team?"
+    ],
+    learnMore: "https://smartdev.com/glossary-technical-debt-ai-induced/"
   },
 ];
