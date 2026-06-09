@@ -39,6 +39,8 @@
   const countHfr   = TOPICS.filter(t => t.category === 'hfr').length;
   const countTotal = TOPICS.length;
 
+  const countTpm   = TOPICS.filter(t => t.tpm === true).length;
+  document.getElementById('count-tpm').textContent   = countTpm;
   document.getElementById('count-total').textContent = countTotal;
   document.getElementById('count-both').textContent  = countBoth;
   document.getElementById('count-pm').textContent    = countPm;
@@ -75,7 +77,9 @@
   function renderCards(filter) {
     const grid   = document.getElementById('topics-grid');
     const empty  = document.getElementById('empty-msg');
-    const visible = filter === 'all' ? TOPICS : TOPICS.filter(t => t.category === filter);
+    const visible = filter === 'all' ? TOPICS
+                 : filter === 'tpm' ? TOPICS.filter(t => t.tpm === true)
+                 : TOPICS.filter(t => t.category === filter);
 
     if (visible.length === 0) {
       grid.innerHTML = '';
@@ -105,6 +109,18 @@
           </div>`
         : '';
 
+      const tpmQs = topic.tpmQuestions && topic.tpmQuestions.length
+        ? `<div class="research-qs tpm-qs">
+            <div class="rq-label">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z"/></svg>
+              TPM questions
+            </div>
+            <ul class="rq-list">
+              ${topic.tpmQuestions.map(q => `<li>${q}</li>`).join('')}
+            </ul>
+          </div>`
+        : '';
+
       const newBadge = isNew(topic.addedDate) ? '<span class="badge-new">New</span>' : '';
       const updatedBadge = isNew(topic.updatedDate) && topic.updatedDate !== topic.addedDate
         ? '<span class="badge-updated">Updated</span>' : '';
@@ -123,6 +139,7 @@
           <p class="card-summary">${topic.summary}</p>
           ${(whyPm || whyHfr) ? `<div class="why-matters">${whyPm}${whyHfr}</div>` : ''}
           ${researchQs}
+          ${tpmQs}
           <div class="key-terms">${terms}</div>
         </div>
         <div class="card-footer">
