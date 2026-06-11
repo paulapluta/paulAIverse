@@ -67,19 +67,28 @@
   renderChangelog();
 
   // ─── Render cards ───────────────────────────────────────────────────────
-  function badgeHtml(cat) {
-    if (cat === 'both') return '<span class="badge badge-both">PM + HFR</span>';
-    if (cat === 'pm')   return '<span class="badge badge-pm">PM</span>';
-    if (cat === 'hfr')  return '<span class="badge badge-hfr">HFR</span>';
-    return '';
+  function badgesHtml(topic) {
+    const tags = [];
+    if (topic.category === 'pm' || topic.category === 'both') tags.push('<span class="badge badge-pm">PM</span>');
+    if (topic.tpm) tags.push('<span class="badge badge-tpm">TPM</span>');
+    if (topic.category === 'hfr' || topic.category === 'both') tags.push('<span class="badge badge-hfr">HFR</span>');
+    return '<div class="card-badges">' + tags.join('') + '</div>';
   }
 
   function renderCards(filter) {
     const grid   = document.getElementById('topics-grid');
     const empty  = document.getElementById('empty-msg');
-    const visible = filter === 'all' ? TOPICS
-                 : filter === 'tpm' ? TOPICS.filter(t => t.tpm === true)
-                 : TOPICS.filter(t => t.category === filter);
+    const visible = filter === 'all'      ? TOPICS
+                 : filter === 'multiple' ? TOPICS.filter(t => {
+                     const hasPm  = t.category === 'pm'  || t.category === 'both';
+                     const hasHfr = t.category === 'hfr' || t.category === 'both';
+                     const hasTpm = t.tpm === true;
+                     return [hasPm, hasHfr, hasTpm].filter(Boolean).length >= 2;
+                   })
+                 : filter === 'pm'       ? TOPICS.filter(t => t.category === 'pm'  || t.category === 'both')
+                 : filter === 'tpm'      ? TOPICS.filter(t => t.tpm === true)
+                 : filter === 'hfr'      ? TOPICS.filter(t => t.category === 'hfr' || t.category === 'both')
+                 : TOPICS;
 
     if (visible.length === 0) {
       grid.innerHTML = '';
@@ -129,7 +138,7 @@
       <article class="card card-${topic.category}" data-id="${topic.id}">
         <div class="card-header">
           <div class="card-header-row">
-            ${badgeHtml(topic.category)}${topic.tpm ? '<span class="badge badge-tpm">TPM</span>' : ''}
+            ${badgesHtml(topic)}
             <div class="card-freshness">${newBadge}${updatedBadge}</div>
           </div>
           <h2 class="card-title">${topic.title}</h2>
