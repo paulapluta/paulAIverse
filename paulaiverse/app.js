@@ -129,7 +129,7 @@
       <article class="card card-${topic.category}" data-id="${topic.id}">
         <div class="card-header">
           <div class="card-header-row">
-            ${badgeHtml(topic.category)}
+            ${badgeHtml(topic.category)}${topic.tpm ? '<span class="badge badge-tpm">TPM</span>' : ''}
             <div class="card-freshness">${newBadge}${updatedBadge}</div>
           </div>
           <h2 class="card-title">${topic.title}</h2>
