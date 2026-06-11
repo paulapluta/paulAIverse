@@ -75,7 +75,7 @@
         <div class="stat-divider"></div>
         <div class="stat">
           <span class="stat-num" id="count-both">—</span>
-          <span class="stat-label">PM + HFR</span>
+          <span class="stat-label">PM &amp; HFR</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat">
@@ -107,12 +107,15 @@
     </div>
   </section>
 
-  <!-- LEGEND -->
+  <!-- FILTER BAR (below changelog) -->
   <section class="legend-bar">
-    <div class="legend-inner">
-      <span class="legend-item"><span class="badge badge-both">PM + HFR</span> Relevant to both roles</span>
-      <span class="legend-item"><span class="badge badge-pm">PM</span> Product management focus</span>
-      <span class="legend-item"><span class="badge badge-hfr">HFR</span> Human factors research focus</span>
+    <div class="legend-inner legend-filter-row">
+      <span class="legend-label">Filter:</span>
+      <button class="pill pill-legend active" data-filter="all">All</button>
+      <button class="pill pill-legend" data-filter="multiple">Multiple</button>
+      <button class="pill pill-legend" data-filter="pm">PM only</button>
+      <button class="pill pill-legend" data-filter="tpm">TPM only</button>
+      <button class="pill pill-legend" data-filter="hfr">HFR only</button>
     </div>
   </section>
 
