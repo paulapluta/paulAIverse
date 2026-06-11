@@ -570,9 +570,16 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 /* ─── New / Updated freshness badges ────────────────────────────────────── */
 .card-header-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: var(--space-2);
+}
+
+.card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
 }
 
 .card-freshness {
