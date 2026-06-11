@@ -4,6 +4,7 @@
 // updatedDate: "YYYY-MM-DD" — shown in changelog
 
 const CHANGELOG = [
+  { date: "2026-06-10", description: "Added TPM badge visible on card headers. Added 2 new topics: Forward Deployed Engineers (FDE) and AI Reasoning." },
   { date: "2026-06-09", description: "Added TPM (Technical Program Manager) dimension: 15 existing topics marked TPM-relevant with dedicated TPM questions. 3 new TPM-focused topics added: AI Observability & LLM Monitoring, LLMOps, and AI-Induced Technical Debt." },
   { date: "2026-05-26", description: "Added 3 new topics: AI Memory & Personalization, AI Regulation & Policy, and AI in Search. Updated Foundation Models and AI Agents cards." },
   { date: "2026-05-11", description: "Added 3 new topics: Vibe Coding, AI & Skill Development, and AI in Scientific Research. Updated Cognitive Load card with new deskilling research findings." },
@@ -800,5 +801,53 @@ const TOPICS = [
       "How do you scope a debt remediation sprint — what is the right ratio of new feature work to debt paydown in an AI-accelerated team?"
     ],
     learnMore: "https://smartdev.com/glossary-technical-debt-ai-induced/"
+  },
+
+  {
+    id: "forward-deployed-engineers",
+    title: "Forward Deployed Engineers (FDE)",
+    category: "pm",
+    addedDate: "2026-06-10",
+    tpm: true,
+    tagline: "Engineers embedded with customers to build, not just advise — the model behind some of the fastest AI adoption in enterprise.",
+    summary: "Forward Deployed Engineers (FDEs) sit at the intersection of software engineering, solutions architecture, and product management. Popularized by Palantir and now widely adopted in AI-first companies (Scale AI, OpenAI, Anduril), FDEs are deployed directly on-site with enterprise customers to build custom AI solutions in tight feedback loops with end users. Unlike traditional SEs or consultants, FDEs write production code and own delivery outcomes. In the AI era, FDE roles are expanding: they configure and extend foundation model platforms, build agent workflows on top of vendor APIs, and act as the bridge between what the AI platform can do and what the customer actually needs. For PMs: FDEs often surface the most honest product feedback because they feel the friction directly. For TPMs: FDE programs require distinct structures — blended team ownership, customer-facing delivery milestones, and IP/data governance that differs from internal builds.",
+    keyTerms: ["FDE", "forward deployed engineer", "Palantir", "enterprise AI", "embedded engineering", "solutions engineering", "customer deployment", "AI implementation"],
+    researchQuestions: [
+      "How do FDEs navigate the tension between building what the customer asks for and what they actually need?",
+      "What mental models do enterprise users form about AI systems built by embedded engineers vs. out-of-the-box products?",
+      "How does the FDE model change user adoption and trust compared to traditional software rollouts?",
+      "What are the human factors challenges of building AI systems under customer-facing time pressure?"
+    ],
+    tpmQuestions: [
+      "How do you structure a program that spans both the vendor FDE team and the customer's internal engineering and IT stakeholders?",
+      "What delivery milestones and quality gates are appropriate for an FDE engagement vs. a standard product release?",
+      "How do you manage IP ownership, data governance, and security review when FDEs are building in a customer environment?",
+      "What does a successful FDE engagement handoff look like — and what does a TPM need to plan for post-engagement sustainability?"
+    ],
+    learnMore: "https://www.palantir.com/careers/teams/forward-deployed-software-engineer/"
+  },
+
+  {
+    id: "ai-reasoning",
+    title: "AI Reasoning",
+    category: "both",
+    addedDate: "2026-06-10",
+    tpm: true,
+    tagline: "AI systems that think before they answer — and the new tradeoffs of latency, cost, and reliability that come with it.",
+    summary: "Reasoning models — LLMs that generate extended chains of thought before producing a final answer — represent a major shift in AI capability and product design. OpenAI o3, Google Gemini 2.5 Pro, Anthropic Claude 3.7 Sonnet, and DeepSeek R1 all spend compute on internal deliberation before responding. This produces dramatically better performance on complex, multi-step problems: coding, math, scientific analysis, and long-horizon planning. The tradeoffs are real: reasoning models are slower (seconds to minutes vs. milliseconds), more expensive per query, and less predictable in response time. For PMs: reasoning is a new capability dial — you choose how much thinking to apply per task. For TPMs: reasoning models require new latency SLAs, cost modeling, and routing logic. For HFR researchers: extended thinking raises new questions about explainability — users can see the model's scratchpad, but does that increase or decrease appropriate trust?",
+    keyTerms: ["chain of thought", "reasoning models", "o3", "Gemini 2.5 Pro", "DeepSeek R1", "extended thinking", "inference scaling", "latency tradeoffs", "model routing", "thinking tokens"],
+    researchQuestions: [
+      "How do users respond to visible chain-of-thought reasoning — does seeing the scratchpad increase or calibrate trust?",
+      "When does AI reasoning feel helpful vs. slow and frustrating — what are the UX thresholds for tolerable latency?",
+      "How do users interpret cases where a reasoning model's visible thinking contradicts its final answer?",
+      "What mental models do non-technical users form about why some AI responses take longer than others?"
+    ],
+    tpmQuestions: [
+      "How do you define latency SLAs for features that use reasoning models — and what user-facing affordances does a TPM require to handle variable response times?",
+      "How do you build cost controls and routing logic that selects the right model tier (fast vs. reasoning) per query type?",
+      "What eval criteria does a TPM need to define specifically for reasoning model outputs — correctness alone is not sufficient?",
+      "How do you scope a reasoning model integration program — what are the dependencies on prompt redesign, UX changes, and cost modeling?"
+    ],
+    learnMore: "https://openai.com/index/introducing-openai-o3-and-o4-mini/"
   },
 ];
