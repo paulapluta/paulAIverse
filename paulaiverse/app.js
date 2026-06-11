@@ -161,17 +161,20 @@
     }).join('');
   }
 
-  // ─── Filter pills ────────────────────────────────────────────────────────
+  // ─── Filter pills (nav + legend row stay in sync) ───────────────────────
   let activeFilter = 'all';
   renderCards(activeFilter);
 
-  document.querySelectorAll('.pill').forEach(pill => {
-    pill.addEventListener('click', () => {
-      activeFilter = pill.dataset.filter;
-      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      renderCards(activeFilter);
+  function setFilter(filter) {
+    activeFilter = filter;
+    document.querySelectorAll('.pill').forEach(p => {
+      p.classList.toggle('active', p.dataset.filter === filter);
     });
+    renderCards(activeFilter);
+  }
+
+  document.querySelectorAll('.pill').forEach(pill => {
+    pill.addEventListener('click', () => setFilter(pill.dataset.filter));
   });
 
   // ─── Changelog toggle ───────────────────────────────────────────────────
